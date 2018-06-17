@@ -1,0 +1,94 @@
+
+<div class="top-container center-elements">
+            
+        <div class="title">
+            <h1 class="full-width">Pedidos</h1>
+        </div>
+        <form action="#!nuevo-pedido" method="get">
+            <button class="btn-option" id="new">Crear nuevo</button>
+        </form>
+    </div>
+    <div class="tabs" id="tabs-menu">
+        <button id="nuevoTab" class="tablinks" onclick="showTab('nuevo')">Borradores</button>
+        <button id="pedidoTab" class="tablinks" onclick="showTab('pedido')">Solicitados</button>
+        <button id="pedidosTab" class="tablinks" onclick="showTab('pedidos')">Completados</button>
+    </div>
+
+    <div id="nuevo" class=" content hidden ">
+        <table class="orders-table">
+        <thead id="table-head">
+            <tr class="center-elements">
+            <th>Pedido</th>
+            <th>Cliente</th>
+            <th class="side-border">Productos</th>
+            <th>Fecha de solicitud</th>	
+            <th></th>	
+        </tr>
+        </thead>
+    
+        <tfoot></tfoot>
+    
+        <tbody>
+            <tr ng-repeat="draftOrder in draftOrders">
+                <td class="center-elements">{{draftOrder._id}}</td>
+                <td class="center-elements">{{draftOrder.customer}}</td>
+                <td class="center-elements side-border" width="20%">{{draftOrder.products.length}}</td>
+                <td class="center-elements">{{draftOrder.date}}</td>
+                <td class="center-elements"><a href="#!seeOrder/{{draftOrder._id}}">Ver</a></td>
+            </tr>
+        </tbody>
+        
+        </table>
+    </div>	
+    <div id="pedido" class="tab hidden content">
+        <div id="content2" class="tabcontent center-elements">
+            <table class="orders-table">
+                <thead id="table-head">
+                    <tr class="center-elements">
+                    <th>Pedido</th>
+                    <th>Cliente</th>
+                    <th class="side-border">Productos</th>
+                    <th>Fecha de solicitud</th>	
+                    <th></th>	
+                </tr>
+                </thead>
+                <tfoot></tfoot>
+                <tbody>
+                    <tr ng-repeat="requestedOrder in requestedOrders">
+                        <td class="center-elements">{{requestedOrder._id}}</td>
+                        <td class="center-elements">{{requestedOrder.customer}}</td>
+                        <td class="center-elements side-border" width="20%">{{requestedOrder.products.length}}</td>
+                        <td class="center-elements">{{requestedOrder.date}}</td>
+                        <td class="center-elements"><a href="#!seeOrder/{{requestedOrder._id}}">Ver</a></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>      
+    </div>	
+    <div id="pedidos" class="tab hidden content">
+        <div id="content3" class="tabcontent center-elements">
+            <table class="orders-table">
+                <thead id="table-head">
+                    <tr class="center-elements">
+                    <th>Pedido</th>
+                    <th>Cliente</th>
+                    <th class="side-border">Productos</th>
+                    <th>Fecha de solicitud</th>	
+                    <th></th>
+                </tr>
+                </thead>
+                <tfoot></tfoot>
+                <tbody>
+                    <tr ng-repeat="finishedOrder in finishedOrders">
+                        <td class="center-elements">{{finishedOrder._id}}</td>
+                        <td class="center-elements">{{finishedOrder.customer}}</td>
+                        <td class="center-elements side-border" width="20%">{{finishedOrder.products.length}}</td>
+                        <td class="center-elements">{{finishedOrder.date}}</td>
+                        <td class="center-elements"><a href="#!seeOrder/{{finishedOrder._id}}">Ver</a></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>            
+    </div>

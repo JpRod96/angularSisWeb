@@ -1,0 +1,63 @@
+<div>
+	<div class="client center-elements">
+		
+		<div class="title">
+			<h1 ng-if="order.status=='requested'" class="full-width" id="orange">Solicitado</h1>
+			
+			<h1 ng-if="order.status=='finished'" class="full-width" id="blue">Completado</h1>
+
+			<h1 ng-if="order.status=='draft'" class="full-width">Nuevo <span id="yellow">Pedido</span></h1>
+		</div>
+		
+		<div ng-if="order.status=='draft'">
+			<button ng-click="toIndent()" class="btn-option center-elements" id="send">Enviar</button>
+			<button ng-click="save()" class="btn-option center-elements" >Guardar</button>
+		</div>
+
+		<div class="data">
+			<label>Cliente: </label>	
+			<input ng-if="order.status=='draft'" class="input-txt" type="text" name="clientName" ng-model="order.customer" required>
+			<input ng-if="order.status=='requested'" class="input-txt" type="text" name="clientName" value="{{order.customer}}" disabled>
+			<input ng-if="order.status=='finished'" class="input-txt" type="text" name="clientName" value="{{order.customer}}" disabled>
+			<br/>
+			<br/>
+			<label>Estado: </label>
+			<label ng-if="order.status=='draft'"> Borrador </label>
+			<label ng-if="order.status=='requested'"> Solicitado </label>
+			<label ng-if="order.status=='finished'"> Completado </label>
+		</div>	
+	</div>
+	<div class="product-table center-elements">
+		<table id="product-table">
+		<thead>
+			<tr class="center-elements">
+			<th>Producto</th>
+			<th></th>		
+		</tr>
+		</thead>
+		<tfoot>
+			<th class="to-right">Conteo Productos: </th>
+			<th class="center-elements">
+				<span id="productsTotal">0</span>
+			</th>
+		</tfoot>
+		<tbody>
+			<tr ng-repeat="inProduct in order.products track by $index">
+				<td> <label>{{productDictionary[inProduct]}}</label> </td>
+				<td ng-if="order.status=='draft'"> <a href="/removeProduct/<%= currentOrder.rows[i].id %>"> Eliminar </a> </td>>	
+			</tr>
+
+			<tr ng-if="order.status=='draft'">
+				<td>
+					<select id="table-select" type="text" name="productName" required>
+						<option ng-repeat="product in products" value="{{product._id}}">{{product.name}}</option>
+					</select>
+				</td>
+				<td class="center-elements">
+					<button ng-click="addProduct()" id="add">Agregar</button>
+				</td>
+			</tr>				
+		</tbody>
+		</table>
+	</div>
+</div>

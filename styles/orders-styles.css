@@ -1,0 +1,194 @@
+/* General classes*/
+body {
+	background-repeat: no-repeat;
+	background-image: url("shop.jpg");
+}
+
+.full-width{
+  margin-left: -30%;
+  margin-right: -30%;
+}
+
+.center-elements {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.side-border{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.to-right{
+  text-align: right;
+}
+
+/* End general classes*/
+
+
+.top-container {
+  margin-left: 10%;
+  margin-right: 10%
+}
+
+.top-container h1{
+  font-family: 'Hammersmith One', sans-serif;
+  font-weight: normal;
+  font-size: 40px;
+
+  background-color: #011627;
+  color: #FFFC31;
+
+  margin-top: 0%;
+  padding: 25px;s 
+}
+
+/*hr{
+  color:5C415D;
+  border-top: dotted 5px;
+}*/
+
+/* new order button*/
+
+
+.btn-option {
+  display: inline-block;
+  float: right;
+  padding: 15px;
+  margin-left: 2%;
+  margin-top: 2%;
+  border: 2px solid black;
+  background-color: transparent;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.btn-option:hover {
+  background-color: black;
+  color: #f2dd43;
+}
+
+/* End new order button*/
+
+
+/* Tabs*/
+
+.container{
+  margin-top: 10%;
+}
+
+
+.tabs {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.tabs button {
+  position: relative;
+  background: #F8F8FF;
+  color: black;
+  padding: 15px;
+  float: left;
+  text-decoration: none;
+  border-radius: 5px 0 0 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,.4);
+  border: none;
+
+  font-family: 'Tajawal', sans-serif;
+  font-size: 20px;
+  font-variant: small-caps;
+  letter-spacing: 2px;
+}
+
+
+.tabs button:hover,
+.tabs button:hover::after,
+.tabs button:focus,
+.tabs button:focus::after {
+  background-color: #011627;
+  color: #F71735;
+}
+
+
+.tabs button:focus {
+  outline: 0;
+  z-index: 3;
+}
+
+.tabs button::after {
+  content:'';
+  top: 0;
+  z-index: 1; 
+  bottom: 0;
+  right: -.5em; 
+  width: 1em;
+  background: #F8F8FF;
+  color: black;
+  position:absolute;
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0; 
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4); 
+}
+
+.tabs button.active{
+  background-color: #011627;
+  color: #F71735;s
+}
+
+.content {
+  margin-top: 0;
+  border: 2px solid black;
+  border-radius: 0 5px 5px 5px;
+  border-top: none;
+  background-color: #011627;
+  color: white;
+  padding: 10px;
+
+  font-family: 'Gentium Basic', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  
+}
+
+.content table{
+  margin: 0 auto;
+  width: 80%;
+  text-align: left;
+  border-collapse: collapse;
+  color: white;
+}
+
+tbody{
+  font-family: 'Tajawal', sans-serif;
+  font-size: 18px;
+}
+
+th,td{
+  padding: 5px;
+  width: 20%;
+}
+
+.orders-table tbody > tr:hover{
+  background-color: #F4ECD6;
+  color: #011627;
+  cursor: pointer;
+}
+
+.orders-table thead{
+  color: white;
+  font-family: 'Forum', cursive;
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+

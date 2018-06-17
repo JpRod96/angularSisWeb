@@ -1,0 +1,233 @@
+
+/* General classes*/
+.center-elements {
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
+
+.full-width{
+  margin-left: -30%;
+  margin-right: -30%;
+}
+
+.side-border{
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.to-right{
+	text-align: right;
+}
+
+.input-txt{
+	padding: 5px;
+	margin-left: 1%;
+}
+
+html{
+	height: 100%;
+}
+
+body {
+	background-repeat: no-repeat;
+	background-image: url("shop.jpg");
+}
+
+/* End general classes*/
+
+/*top client part*/
+
+.client {
+	margin-left: 15%;
+	margin-right: 15%
+}
+
+.title h1{
+	font-family: 'Hammersmith One', cursive;
+	font-weight: normal;
+	font-size: 40px;
+
+	background-color: #011627;
+	color: white;
+
+	margin-top: 0%;
+	padding: 25px;
+}
+
+.title #yellow{
+	color: #F71735;
+}
+
+.title #orange{
+	color: chocolate;
+}
+
+.title #blue{
+	color: #41EAD4;
+}
+
+.title #order-number{
+	color: #41EAD4;
+}
+
+/* send, save buttons*/
+
+
+
+.btn-option {
+	display: inline-block;
+	float: right;
+	padding: 15px;
+	margin-left: 2%;
+	border: 2px solid black;
+	background-color: transparent;
+	font-family: 'Tajawal', sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: black;
+}
+
+.btn-option:hover {
+	background-color: black;
+	color: #f2dd43;
+}
+
+
+
+/* Endsend, save buttons*/
+
+.data {
+	margin-top: 10%;
+	text-align: left;
+}
+
+.data label{
+	padding: 10px;
+	font-family: 'Gentium Basic', serif;
+	font-size: 22px;
+}
+
+.data input{
+	font-family: 'Gentium Basic', serif;
+	font-size: 20px;
+}
+
+.data input:focus {
+    outline: none !important;
+    border:1px solid purple;
+    box-shadow: 0 0 1.5px #5b3563;
+    width: 100%;
+    
+    transition: width 0.5s ease-out ;
+    -webkit-transition: width 0.5s ease-out;
+}
+
+/* End top client part*/
+
+/* Products table*/
+
+.product-table{
+	margin-top: 5%;
+}
+
+.product-table table{
+	margin: 0 auto;
+	width: 80%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+.product-table tbody{
+	font-family: 'Tajawal', sans-serif;
+	font-size: 18px;
+}
+
+.product-table th,td{
+	text-align: center;
+	padding: 5px;
+}
+
+.product-table thead{
+	color: white;
+	background-color: #011627;
+	font-family: 'Forum', cursive;
+	font-size: 25px;
+	
+	letter-spacing: 2px;
+	font-weight: normal;
+}
+
+.product-table tfoot{
+	color: black;
+	font-family: 'Forum', cursive;
+	font-size: 25px;
+	letter-spacing: 2px;
+}
+ /* even, odd but thead and tfoot also change color*/
+.product-table tr:nth-child(even) { 
+	background: #e0e2e5;
+}
+
+.product-table select{
+	width: 90%;
+	padding: 5px;
+	font-family: 'Tajawal', sans-serif;
+	font-size: 18px;
+
+	background-color: transparent;
+	border:1px solid #011627;
+	border-radius: 20px;
+	color: #011627;
+}
+
+.product-table select:focus {
+	outline: none !important;
+    box-shadow: 0 0 1.5px #0b054c;
+}
+
+.product-table input{
+	width: 15%;
+	padding: 5px;
+	font-family: 'Tajawal', sans-serif;
+	font-size: 18px;
+}
+
+.product-table input:focus {
+    outline: none !important;
+    border:1px solid green;
+    box-shadow: 0 0 1.5px #4aba21;
+}
+
+.product-table button,a{
+	font-family: 'Tajawal', sans-serif;
+	text-decoration: none;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #FF9F1C;
+	background: none;
+	border: none;
+}
+
+.product-table button,a:hover{
+	color: #B80C09;
+}
+
+.product-table tr:hover{
+	
+}
+
+.tab{
+	position: absolute;
+}
+
+/*.product-table #left-footer{
+	margin-top: 3%;
+	float:right;
+}*/
+
+/* End products table*/
