@@ -14,6 +14,10 @@
 			<button ng-click="save()" class="btn-option center-elements" >Guardar</button>
 		</div>
 
+		<div ng-if="order._id!=undefined">
+			<button ng-click="delete()" class="btn-option center-elements" >Eliminar</button>
+		</div>
+
 		<div class="data">
 			<label>Cliente: </label>	
 			<input ng-if="order.status=='draft'" class="input-txt" type="text" name="clientName" ng-model="order.customer" required>
@@ -43,8 +47,12 @@
 		</tfoot>
 		<tbody>
 			<tr ng-repeat="inProduct in order.products track by $index">
-				<td> <label>{{productDictionary[inProduct]}}</label> </td>
-				<td ng-if="order.status=='draft'"> <a href="/removeProduct/<%= currentOrder.rows[i].id %>"> Eliminar </a> </td>>	
+				<td> 
+					<label>{{productDictionary[inProduct]}}</label> 
+				</td>
+				<td ng-if="order.status=='draft'"> 
+						<button ng-click="removeProduct($index)"> Eliminar</button>
+				</td>>	
 			</tr>
 
 			<tr ng-if="order.status=='draft'">
@@ -61,3 +69,6 @@
 		</table>
 	</div>
 </div>
+<form action="#!/">
+	<button class="btn-option center-elements"> <- Atras</button>
+</form>

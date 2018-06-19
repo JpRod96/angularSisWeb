@@ -5,6 +5,7 @@ const ORDERS_BY_STATUS="/orders?status=";
 const DRAFT_STATUS="draft";
 const REQUESTED_STATUS="requested";
 const FINISHED_STATUS="finished";
+const CI="8823903"
 let currentOrder;
 const productDictionary={};
 
@@ -31,7 +32,7 @@ app.controller("orderMngrCtrl", function($scope, $http, $routeParams){
         method: 'GET',
         url: URL+ORDER+"/"+id,
         headers: {
-          User:"8823931"
+          User:CI
         }
     };
 
@@ -41,7 +42,7 @@ app.controller("orderMngrCtrl", function($scope, $http, $routeParams){
         method: 'GET',
         url: URL+PRODUCT_URL,
         headers: {
-          User:"8823931"
+          User:CI
         }
     };
     fetchProductToScope($http, req, $scope);
@@ -53,7 +54,6 @@ app.controller("orderMngrCtrl", function($scope, $http, $routeParams){
     }
 
     $scope.save = () => {
-
         saveOrder($http);
     }
 
@@ -62,6 +62,15 @@ app.controller("orderMngrCtrl", function($scope, $http, $routeParams){
         let id = select.value;
         $scope.order.products.push(id);
         currentOrder = $scope.order;
+        increaseRowCounter();
+    }
+
+    $scope.delete = () => {
+        deleteOrder($http, id);
+    }
+
+    $scope.removeProduct = (index) => {
+        $scope.order.products.splice(index, 1);
         increaseRowCounter();
     }
 });
@@ -83,7 +92,7 @@ app.controller("mainCtrl", function($scope, $http){
         method: 'GET',
         url: URL+ORDERS_BY_STATUS+DRAFT_STATUS,
         headers: {
-          User:"8823931"
+          User:CI
         }
     }
     fetchDraftOrdersToScope($http,req,$scope);
@@ -91,7 +100,7 @@ app.controller("mainCtrl", function($scope, $http){
         method: 'GET',
         url: URL+ORDERS_BY_STATUS+REQUESTED_STATUS,
         headers: {
-          User:"8823931"
+          User:CI
         }
     }
     fetchRequestedOrdersToScope($http,req,$scope);
@@ -99,7 +108,7 @@ app.controller("mainCtrl", function($scope, $http){
         method: 'GET',
         url: URL+ORDERS_BY_STATUS+FINISHED_STATUS,
         headers: {
-          User:"8823931"
+          User:CI
         }
     }
     fetchFinishedOrdersToScope($http,req,$scope);
@@ -113,7 +122,7 @@ function newCtrl($scope, $http){
         method: 'GET',
         url: URL+PRODUCT_URL,
         headers: {
-          User:"8823931"
+          User:CI
         }
     };
     fetchProductToScope($http, req, $scope);
@@ -140,7 +149,11 @@ function newCtrl($scope, $http){
         $scope.order.products.push(id);
         currentOrder=$scope.order;
         increaseRowCounter();
-        console.log(currentOrder);
+    }
+
+    $scope.removeProduct = (index) => {
+        $scope.order.products.splice(index, 1);
+        increaseRowCounter();
     }
 }
 
@@ -165,7 +178,7 @@ function saveOrder(httpService){
             url: URL+ORDER+"/"+id,
             data : JSON.stringify(currentOrder),
             headers: {
-              User:"8823931"
+              User:CI
             }
         };
     }
@@ -175,17 +188,37 @@ function saveOrder(httpService){
             url: URL+ORDER,
             data : JSON.stringify(currentOrder),
             headers: {
-              User:"8823931"
+              User:CI
             }
         };
     }
     httpService(req)
-        .then((response)=>{
+        .then((response) => {
             window.location.replace('/');
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log("error we "+error);
         });
+}
+
+function deleteOrder(httpService, orderId){
+    let req = 
+    {
+        method: 'DELETE',
+        url: URL+ORDER+"/"+orderId,
+        headers: {
+            User:CI
+        }
+    };
+    httpService(req)
+    .then((response) => {
+        window.location.replace('/');
+    })
+    .catch((error) => {
+        /*console.log(error);
+        console.log(URL+ORDER+"/"+orderId,);*/
+        window.location.replace('/');
+    });
 }
 
 function fetchDraftOrdersToScope(httpService, req, scope){
